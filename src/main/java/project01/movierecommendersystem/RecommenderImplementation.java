@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 public class RecommenderImplementation {
     //Filter is a dependency of this class
     @Autowired
-    @Qualifier("CBF")
     private Filter filter;
 
     public RecommenderImplementation(Filter filter) {

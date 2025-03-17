@@ -2,7 +2,6 @@ package project01.movierecommendersystem;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.WebProperties.Resources.Chain.Strategy.Content;
 import org.springframework.stereotype.Component;
 
 @Component
