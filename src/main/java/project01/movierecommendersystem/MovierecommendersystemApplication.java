@@ -13,23 +13,16 @@ public class MovierecommendersystemApplication {
 		//that are needed by the application
 		ApplicationContext appContext = SpringApplication.run(MovierecommendersystemApplication.class, args);	
 
-		//Retrieve singleton bean from appContext
-		ContentBasedFilter filter = appContext.getBean(ContentBasedFilter.class);
-		System.out.println("ContentBasedFilter bean with singleton scope " + filter);
+		//use ApplicationContext to get recommender object
+		RecommenderImplementation recommender = appContext.getBean(RecommenderImplementation.class);	
+		System.out.println(recommender);
+		  
+		//Retrieving prototype bean from application context twice
+		Movie m1 = appContext.getBean(Movie.class);
+		System.out.println(m1);
 
-		//Retrieve prototype bean from appContext
-		Movie movie1 = filter.getMovie();
-		Movie movie2 = filter.getMovie();
-		Movie movie3 = filter.getMovie();
-		
-		System.out.println("\n Movie bean with prototype scope");
-		System.out.println(movie1);
-		System.out.println(movie2);
-		System.out.println(movie3);
-
-		//print number of instances of each bean
-		System.out.println("\n ContentBasedFilter instances: " + ContentBasedFilter.getInstances());
-		System.out.println("Movie instances: " + Movie.getInstances());
+		Movie m2 = appContext.getBean(Movie.class);
+		System.out.println(m2);
 
 	}
 
